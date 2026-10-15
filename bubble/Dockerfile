@@ -16,7 +16,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-Cloud Run 포트 개방 (기본 8080)
+
 
 ENV PORT=8080
 EXPOSE 8080
