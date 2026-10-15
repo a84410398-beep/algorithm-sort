@@ -16,4 +16,4 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Gunicorn 서버를 이용해 앱 실행
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app.app"]
