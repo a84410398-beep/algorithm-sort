@@ -1,7 +1,26 @@
 
 
-Flask==3.0.2
+FROM python:3.11-slim
 
-gunicorn==21.2.0
 
-Werkzeug==3.0.1
+WORKDIR /app
+
+
+RUN apt-get update && apt-get install -y --no-install-recommends 
+
+
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+
+COPY . .
+
+Cloud Run 포트 개방 (기본 8080)
+
+ENV PORT=8080
+EXPOSE 8080
+
+
+
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "2", "--threads", "4", "--timeout", "0", "main:app"]
