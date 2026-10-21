@@ -15,4 +15,4 @@ COPY . .
 ENV PORT=8080
 
 # Gunicorn을 사용하여 앱 실행
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 app.app
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 app:app
